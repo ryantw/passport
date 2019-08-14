@@ -1,4 +1,4 @@
-package io.lker.passport.service.impl;
+package io.lker.passport.service;
 
 import io.lker.passport.exception.UserIdNotFoundException;
 import io.lker.passport.model.User;

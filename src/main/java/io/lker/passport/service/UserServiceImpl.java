@@ -3,7 +3,6 @@ package io.lker.passport.service;
 import io.lker.passport.exception.UserIdNotFoundException;
 import io.lker.passport.model.User;
 import io.lker.passport.repository.UserRepository;
-import io.lker.passport.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -38,9 +37,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> findByUsername(String username) {
+    public User findByUsername(String username) {
         log.info("findByUsername() with username: {}", username);
-        return Optional.ofNullable(userRepository.findByUsernameIgnoreCase(username))
+        return userRepository.findByUsernameIgnoreCase(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username not found: " + username));
     }
 

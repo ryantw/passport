@@ -82,6 +82,11 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.6.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+		</dependency>
 
 		<!-- Testing stuff -->
 		<dependency>

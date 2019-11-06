@@ -24,10 +24,10 @@ public class StartUpData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Start up data loading...");
-        loadData();
+        loadUsers();
     }
 
-    private void loadData() {
+    private void loadUsers() {
 
         User user = User.builder()
                 .id(1L)

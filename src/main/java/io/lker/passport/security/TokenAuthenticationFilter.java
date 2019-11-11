@@ -40,6 +40,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             username = tokenHelper.getUsernameFromToken(authToken);
             if(username != null){
                 UserDetails userDetails = userAuthService.loadUserByUsername(username);
+                // If token is close to expiring, set a new one.
                 if(tokenHelper.validateToken(authToken, userDetails)){
                     TokenBasedAuthentication authentication = new TokenBasedAuthentication(userDetails);
                     authentication.setToken(authToken);

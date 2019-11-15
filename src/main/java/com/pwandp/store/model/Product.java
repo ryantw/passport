@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.money.MonetaryAmount;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -38,7 +39,7 @@ public class Product implements Serializable {
 
     private Date lastModified = new Date();
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "productSizes")
+    @OneToOne(cascade = CascadeType.ALL)
     private AllSizes productSize;
 
 }

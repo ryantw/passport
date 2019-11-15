@@ -92,6 +92,11 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.9</version>
 		</dependency>
+		<dependency>
+			<groupId>org.javamoney</groupId>
+			<artifactId>moneta</artifactId>
+			<version>1.1</version>
+		</dependency>
 
 		<!-- Testing stuff -->
 		<dependency>

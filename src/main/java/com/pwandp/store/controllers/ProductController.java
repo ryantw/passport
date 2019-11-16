@@ -24,14 +24,22 @@ public class ProductController {
         dataBinder.setDisallowedFields("id");
     }
 
+    @GetMapping
+    public ResponseEntity<?> getProducts(){
+        // TODO: implement return if enabled
+        return ResponseEntity.ok(productService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProduct(@PathVariable Long id){
+        // TODO: implement return if enabled
+        return ResponseEntity.ok(productService.findById(id));
+    }
+
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product save(@RequestBody Product product){
         return productService.save(product);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getProduct(@PathVariable Long id){
-        return ResponseEntity.ok(productService.findById(id));
-    }
 }

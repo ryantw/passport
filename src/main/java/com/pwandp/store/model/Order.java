@@ -16,12 +16,20 @@ import java.util.Date;
 @Entity
 @EqualsAndHashCode(exclude = {"customer"})
 @Slf4j
-@Table(name = "preorders")
+@Table(name = "preorder")
 public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    private String emailAddress;
+
+    private String paypalEmailAddress;
+
+    private String firstName;
+
+    private String lastName;
 
     private Date dateOrdered = new Date();
 
@@ -31,16 +39,12 @@ public class Order implements Serializable {
 
     private BigDecimal total;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "order")
-    private OrderSizeQuantities orderSizeQuantities;
+    // Canceled or not, basically.
+    private boolean enabled;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private OrderSizeQuantities orderSizeQuantities;
 
     @OneToOne
     private Product product;
-
-    // TODO: rework customer/order relationship
-    @JsonIgnore
-    @ManyToOne
-    private Customer customer;
-
 }

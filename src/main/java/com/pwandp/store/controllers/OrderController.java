@@ -1,11 +1,10 @@
 package com.pwandp.store.controllers;
 
+import com.pwandp.store.model.Order;
 import com.pwandp.store.service.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/order")
@@ -22,5 +21,10 @@ public class OrderController {
     public ResponseEntity<?> getOrders(){
         // TODO: implement return if enabled
         return ResponseEntity.ok(orderService.findAll());
+    }
+
+    @PostMapping("/new")
+    public ResponseEntity<?> saveOrder(@RequestBody Order order){
+        return ResponseEntity.ok(orderService.save(order));
     }
 }

@@ -1,5 +1,6 @@
 package com.pwandp.store.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -30,8 +32,9 @@ public class Customer implements Serializable {
 
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private List<Order> orders = new ArrayList<>();
+    private Date created = new Date();
 
-
+    @JsonIgnore
+    @OneToOne
+    private Order preorder;
 }

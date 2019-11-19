@@ -42,4 +42,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteById(Long aLong) {
 
     }
+
+    @Override
+    public Customer findByEmailAddress(String emailAddress) {
+        return customerRepository.findByEmailAddress(emailAddress);
+    }
 }

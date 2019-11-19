@@ -1,6 +1,8 @@
 package com.pwandp.store.service;
 
+import com.pwandp.store.model.Customer;
 import com.pwandp.store.model.Order;
+import com.pwandp.store.repository.CustomerRepository;
 import com.pwandp.store.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

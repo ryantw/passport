@@ -21,8 +21,8 @@ public class OrderSizeQuantities implements Serializable {
     private long id;
 
     @JsonIgnore
-    @OneToOne
-    private Order order;
+    @OneToOne(mappedBy = "orderSizeQuantities")
+    private Order preorder;
 
     @Column(name = "age0_3m")
     private int age0to3months;

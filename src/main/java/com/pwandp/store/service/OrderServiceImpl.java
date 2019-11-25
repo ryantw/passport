@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -31,6 +32,15 @@ public class OrderServiceImpl implements OrderService {
     public Order findById(Long aLong) {
         return orderRepository.findById(aLong)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
+    }
+
+    @Override
+    public Order findByEmailAddress(String emailAddress) {
+        Optional<Order> order = Optional.ofNullable(orderRepository.findByEmailAddress(emailAddress));
+        if(order.isPresent()){
+            return order.get();
+        }
+        throw new RuntimeException("Error finding order.");
     }
 
     @Override

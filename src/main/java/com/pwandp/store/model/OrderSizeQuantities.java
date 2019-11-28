@@ -61,7 +61,7 @@ public class OrderSizeQuantities implements Serializable {
     private int age5to6year;
 
     @Column(name = "age6_7y")
-    private int age7to6year;
+    private int age6to7year;
 
     @Column(name = "age7_8y")
     private int age7to8year;

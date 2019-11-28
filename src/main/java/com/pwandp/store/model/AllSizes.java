@@ -58,7 +58,7 @@ public class AllSizes implements Serializable {
     private boolean age5to6year;
 
     @Column(name = "age6_7y")
-    private boolean age7to6year;
+    private boolean age6to7year;
 
     @Column(name = "age7_8y")
     private boolean age7to8year;
